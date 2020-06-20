@@ -1,0 +1,50 @@
+.example-container {
+  width : 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-sidenav-content {
+  display        : flex;
+  height         : 100%;
+  align-items    : center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
+
+.body {
+  height: 90%;
+  width : 100%;
+}
+
+.nav {
+
+  li {
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+
+      color    : rgb(129, 226, 233) !important;
+      font-size: 1rem;
+    }
+  }
+}
+
+b {
+  color: rgb(129, 226, 233) !important;
+text-decoration: none;
+}
+
+#navBar {
+  border-bottom: .5px solid rgb(129, 226, 233);
+}
+
+@media (max-width: 767px) {
+  .nav {
+    display: none !important;
+  }
+}

@@ -1,0 +1,29 @@
+<mat-drawer-container class="example-container" autosize >
+    <mat-drawer #drawer class="example-sidenav" mode="push">
+        <span class="px-2"><a [routerLink]="['/landing']">My App</a></span>
+        <!-- <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p> -->
+        <!-- <button class="btn btn-primary" (click)="showFiller = !showFiller" mat-raised-button>
+            Toggle extra text
+        </button> -->
+        <ul class="d-flex flex-column nav2 pt-3 pr-3" style="list-style:  none;">
+            <li style="padding: 5px 0 5px 0;" *ngIf="showAdmin"><a [routerLink]="['/adminLanding']">Admin
+                    Landing</a></li>
+            <li style="padding: 5px 0 5px 0;"><a [routerLink]="['/login']">login</a></li>
+        </ul>
+    </mat-drawer>
+    <mat-toolbar class="sticky-top " id="navBar">
+        <button mat-button color="accent" aria-label="Example icon button with a home icon" (click)="drawer.toggle()"
+            class="btn btn-secondary d-block d-md-none d-lg-none d-xl-none">
+            <mat-icon aria-label="Example home icon">menu</mat-icon>
+        </button>
+        <button mat-button type="button" color="accent" [routerLink]="['/landing']" class="active btn ml-2"><b>My App</b></button>
+        <ul class="d-flex mb-0 col-3 justify-content-around nav">
+            <li><a [routerLink]="['/adminLanding']" *ngIf="showAdmin">Admin
+                    Landing</a></li>
+            <li><a [routerLink]="['/login']">login</a></li>
+        </ul>
+    </mat-toolbar>
+    <div class="body">
+        <router-outlet></router-outlet>
+    </div>
+</mat-drawer-container>

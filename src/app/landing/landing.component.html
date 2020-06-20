@@ -1,0 +1,29 @@
+<div class="container-fluid" id="servCont">
+    <div class="row">
+        <div class="col-12 header d-flex align-items-center justify-content-center">
+            <h1 class=" display-1">My app</h1>
+        </div>
+
+        <div class="container" *ngFor="let item of services">
+            <div class="col-12 d-flex justify-content-center  pt-3 ">
+                <h1>
+                    {{item.name}}
+                </h1>
+            </div>
+            <div class=" py-5 px-5 panelAdmin" style="
+            
+            height: 100vh;
+            background-image: url({{item.imgUrl}});
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            " id="contService">
+                    
+                    <p>{{item.descripcion}}</p>
+                </div>
+        </div>
+
+    </div>
+
+</div>

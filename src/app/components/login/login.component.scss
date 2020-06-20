@@ -1,0 +1,20 @@
+#contLogin{
+    height: 100%;
+    background-image: url(../../../assets/images/adminLanding/computer-3163436_1280.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    #login{
+        height: 400px;
+        max-width: 300px;
+        min-width: 300px;
+
+::ng-deep input.mat-input-element{
+    border-radius: 5px;
+   padding: 10px 0 10px 10px;
+}
+
+
+    }
+}

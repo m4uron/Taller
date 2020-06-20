@@ -1,0 +1,46 @@
+<div class="container-fluid d-flex flex-column justify-content-center align-items-center" id="contLogin">
+
+    <div *ngIf="fireauth.user | async as user; else showLogin">
+        <h1>Hello {{ user.displayName }}!</h1>
+        <button (click)="logout()">Logout</button>
+    </div>
+    <ng-template #showLogin>
+        <div class="container d-flex justify-content-center">
+
+            <form action="" class="row text-center panelAdmin" [formGroup]="formLogin" (ngSubmit)="login()" id="login">
+                <div class="col-12 text-center pt-3">
+                    <h1>Ingresa tu correo y contraseña</h1>
+                </div>
+                <div class="col-12 py-3">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email" placeholder="Ex. pat@example.com">
+                        <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                            Please enter a valid email address
+                        </mat-error>
+                        <mat-error *ngIf="email.hasError('required')">
+                            Email is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+
+                <div class="col-12 py-3">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>password</mat-label>
+                        <input matInput formControlName="password" placeholder="ingresa password" type="password">
+                        <mat-error *ngIf="password.hasError('required')">
+                            password <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-12 text-center pb-3">
+                    <button mat-raised-button color="warn" type="submit" class="btn btn-dark" [disabled]="formLogin.invalid"><fa-icon [icon]="faCheck"></fa-icon> Ingresar</button>
+                </div>
+            </form>
+        </div>
+
+
+    </ng-template>
+
+</div>

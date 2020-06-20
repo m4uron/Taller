@@ -1,0 +1,22 @@
+.header{
+    height: 100vh;
+    background-image: url(../../assets/images/landing/combi.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    border-bottom: .5px solid rgb(129, 226, 233);
+   // &:hover {filter: saturate(180%);}
+}
+#contService{
+
+    border-radius: 5px;
+
+}
+#servCont{
+    background-image: url(../../assets/images/adminLanding/computer-3163436_1280.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}

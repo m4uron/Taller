@@ -1,0 +1,49 @@
+<div class="container-fluid" id="bodyAdminLanding">
+    <div class="row px-5 pt-4">
+        <div class="col-12 text-center my-4">
+            <h1>Agregar Servicio al landing</h1>
+            <p>
+                En este apartado podras crear el contenido de un servicio: el nombre, el contenido y una imagen desde la
+                web.
+            </p>
+        </div>
+        <form class="col-12 pt-5 px-4 panelAdmin" [formGroup]="formServices" (ngSubmit)="saveServLanding()"
+            style="height: 60vh;">
+
+            <mat-form-field class="example-full-width col-12">
+                <mat-label>Url de imagen de fondo</mat-label>
+                <input matInput formControlName="urlImg" placeholder="Http://etc....">
+                <!-- <mat-error *ngIf="!name.hasError('required')">
+                    Please enter a name
+                </mat-error> -->
+
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width col-12">
+                <mat-label>* Nombre del servicio</mat-label>
+                <input matInput formControlName="name" placeholder="Ex. Hojalateria">
+                <mat-error *ngIf="name.hasError('required')">
+                    Please enter a name
+                </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width col-12">
+                <mat-label>* Descripción del servicio</mat-label>
+                <textarea matInput formControlName="desc" placeholder="Ex. bla bla bla"></textarea>
+                <mat-error *ngIf="desc.hasError('required')">
+                    Please enter a description
+                </mat-error>
+
+            </mat-form-field>
+
+            <div class="col-12 py-2 my-2ng formServices">
+                <button mat-raised-button color="warn" type="submit" [disabled]="formServices.invalid"
+                class="btn btn-dark align-right">Save</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+

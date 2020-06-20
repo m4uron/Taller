@@ -28,7 +28,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@types/jquery": "^3.3.38",
     "angularfire2": "^5.4.2",
-    "bootstrap": "4.1.1",
+    "bootstrap": "4.3.1",
     "firebase": "^7.15.2",
     "ngx-bootstrap": "^5.6.1",
     "rxjs": "~6.5.4",

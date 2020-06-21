@@ -9,7 +9,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
     height: 80vh;
     // background-color: rgb(162, 142, 168);
     border: .5px solid rgb(129, 226, 233);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(2.5px);
     textarea{
         height: 10vh;
         resize: none !important;
@@ -30,5 +30,12 @@ button{
     height: 40px;
     &:focus{
         outline: none !important;
+    }
+}
+.iconTab{
+    
+    cursor: pointer;
+    &:hover{
+        color: rgb(129, 226, 233) !important;
     }
 }

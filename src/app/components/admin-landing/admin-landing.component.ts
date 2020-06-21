@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { LandingService } from '../../services/landing.service';
 import { Serviceslanding } from '../../models/serviceslanding';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 
@@ -15,13 +16,17 @@ export class AdminLandingComponent implements OnInit {
 
   formServices: FormGroup;
   serviceTosave: Serviceslanding;
-  faCoffee = faCoffee;
+  faTrash = faTrash;
+  faPencilAlt = faPencilAlt;
   private servLandingList: AngularFirestoreCollection<Serviceslanding>;
   items: Observable<Serviceslanding[]>;
-  constructor(private fb: FormBuilder, private ls:LandingService) { }
+  servSelected = [];
+
+  constructor(private fb: FormBuilder, private ls: LandingService) { }
 
   ngOnInit(): void {
     this.validarForm();
+    this.getInfoServLanding();
   }
   get name() {
     return this.formServices.get("name");
@@ -46,7 +51,20 @@ export class AdminLandingComponent implements OnInit {
       descripcion: this.desc.value,
       imgUrl: this.urlImg.value
     }
-      this.ls.addServLanding(this.serviceTosave);
+    this.ls.addServLanding(this.serviceTosave);
+  }
+
+  getInfoServLanding() {
+    this.ls.getServLanding().subscribe(data => {
+      this.servSelected = data;
+    });
+  }
+  editServLand(srv) {
+    alert("Hello edit!!!"+JSON.stringify(srv));
+  }
+  deleteServLanding(srv){
+    console.log("Dentro de eliminar" + srv.id);
+    this.ls.removeServLanding(srv.id);
   }
 
 }

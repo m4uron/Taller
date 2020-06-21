@@ -1,49 +1,78 @@
 <div class="container-fluid" id="bodyAdminLanding">
     <div class="row px-5 pt-4">
-        <div class="col-12 text-center my-4">
+        <!-- <div class="col-12 text-center my-4">
             <h1>Agregar Servicio al landing</h1>
             <p>
                 En este apartado podras crear el contenido de un servicio: el nombre, el contenido y una imagen desde la
                 web.
             </p>
-        </div>
-        <form class="col-12 pt-5 px-4 panelAdmin" [formGroup]="formServices" (ngSubmit)="saveServLanding()"
-            style="height: 60vh;">
+        </div> -->
 
-            <mat-form-field class="example-full-width col-12">
-                <mat-label>Url de imagen de fondo</mat-label>
-                <input matInput formControlName="urlImg" placeholder="Http://etc....">
-                <!-- <mat-error *ngIf="!name.hasError('required')">
+        <mat-tab-group animationDuration="800ms" class="panelAdmin pt-5 mt-2 px-5">
+            <mat-tab label="Lista de servicios">
+                <!-- tab listar services -->
+
+                <div class="container my-4">
+                    <mat-selection-list #shoes [multiple]="false" class="">
+                        <mat-list-option *ngFor="let serv of servSelected">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12 d-flex justify-content-between">{{serv.name}} <div class="d-flex">
+                                            <fa-icon [icon]="faPencilAlt" class="mx-1 iconTab" (click)="editServLand(serv)">Edit</fa-icon>
+                                            <fa-icon [icon]="faTrash" class="mx-1 iconTab" (click)="deleteServLanding(serv)">delete</fa-icon>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-list-option>
+                    </mat-selection-list>
+                </div>
+
+                <!-- <p>
+  Option selected: {{shoes.selectedOptions.selected}}
+</p> -->
+                <!-- termina tab services -->
+            </mat-tab>
+            <mat-tab label="Crear">
+                <form class="col-12 pt-5 px-4 " [formGroup]="formServices" (ngSubmit)="saveServLanding()"
+                    style="height: 60vh;">
+
+                    <mat-form-field class="example-full-width col-12">
+                        <mat-label>Url de imagen de fondo</mat-label>
+                        <input matInput formControlName="urlImg" placeholder="Http://etc....">
+                        <!-- <mat-error *ngIf="!name.hasError('required')">
                     Please enter a name
                 </mat-error> -->
 
-            </mat-form-field>
+                    </mat-form-field>
 
-            <mat-form-field class="example-full-width col-12">
-                <mat-label>* Nombre del servicio</mat-label>
-                <input matInput formControlName="name" placeholder="Ex. Hojalateria">
-                <mat-error *ngIf="name.hasError('required')">
-                    Please enter a name
-                </mat-error>
+                    <mat-form-field class="example-full-width col-12">
+                        <mat-label>* Nombre del servicio</mat-label>
+                        <input matInput formControlName="name" placeholder="Ex. Hojalateria">
+                        <mat-error *ngIf="name.hasError('required')">
+                            Please enter a name
+                        </mat-error>
 
-            </mat-form-field>
+                    </mat-form-field>
 
-            <mat-form-field class="example-full-width col-12">
-                <mat-label>* Descripción del servicio</mat-label>
-                <textarea matInput formControlName="desc" placeholder="Ex. bla bla bla"></textarea>
-                <mat-error *ngIf="desc.hasError('required')">
-                    Please enter a description
-                </mat-error>
+                    <mat-form-field class="example-full-width col-12">
+                        <mat-label>* Descripción del servicio</mat-label>
+                        <textarea matInput formControlName="desc" placeholder="Ex. bla bla bla"></textarea>
+                        <mat-error *ngIf="desc.hasError('required')">
+                            Please enter a description
+                        </mat-error>
 
-            </mat-form-field>
+                    </mat-form-field>
 
-            <div class="col-12 py-2 my-2ng formServices">
-                <button mat-raised-button color="warn" type="submit" [disabled]="formServices.invalid"
-                class="btn btn-dark align-right">Save</button>
-            </div>
+                    <div class="col-12 py-2 my-2ng formServices">
+                        <button mat-raised-button color="warn" type="submit" [disabled]="formServices.invalid"
+                            class="btn btn-dark align-right">Save</button>
+                    </div>
 
-        </form>
+                </form>
+            </mat-tab>
+            <!-- <mat-tab label="Third">Content 3</mat-tab> -->
+        </mat-tab-group>
     </div>
 </div>
-
-

@@ -30,12 +30,16 @@ export class LandingService {
     return this.items;
 
   }
-  addServLanding(serv: Serviceslanding) {
+  addServLanding(serv) {
     return this.afs.collection<Serviceslanding>('servicesLanding').add(serv)
-  }
+ }
   removeServLanding(idServ) {
     this.itemDoc = this.afs.doc('servicesLanding/' + idServ);
     this.itemDoc.delete();
   }
+updateSErvLanding(serv,id){
+  this.itemDoc = this.afs.doc('servicesLanding/' + id);
+  this.itemDoc.update(serv);
+}
 
 }

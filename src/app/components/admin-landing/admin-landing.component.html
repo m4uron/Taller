@@ -8,7 +8,7 @@
             </p>
         </div> -->
 
-        <mat-tab-group animationDuration="800ms" class="panelAdmin pt-5 mt-2 px-5">
+        <mat-tab-group #tabs animationDuration="800ms" class="panelAdmin pt-5 mt-2 px-5">
             <mat-tab label="Lista de servicios">
                 <!-- tab listar services -->
 
@@ -17,9 +17,13 @@
                         <mat-list-option *ngFor="let serv of servSelected">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-12 d-flex justify-content-between">{{serv.name}} <div class="d-flex">
-                                            <fa-icon [icon]="faPencilAlt" class="mx-1 iconTab" (click)="editServLand(serv)">Edit</fa-icon>
-                                            <fa-icon [icon]="faTrash" class="mx-1 iconTab" (click)="deleteServLanding(serv)">delete</fa-icon>
+                                    <div class="col-12 d-flex justify-content-between">{{serv.name}}, {{serv.id}} <div
+                                            class="d-flex">
+                                            <fa-icon [icon]="faPencilAlt" class="mx-1 iconTab"
+                                                (click)="editServLand(serv)" matTooltip="Editar servicio ">Edit
+                                            </fa-icon>
+                                            <fa-icon [icon]="faTrash" class="mx-1 iconTab" (click)="openModal(template, serv)"
+                                                matTooltip="Eliminar servicio">delete</fa-icon>
 
                                         </div>
                                     </div>
@@ -34,7 +38,7 @@
 </p> -->
                 <!-- termina tab services -->
             </mat-tab>
-            <mat-tab label="Crear">
+            <mat-tab label="Crear/Editar">
                 <form class="col-12 pt-5 px-4 " [formGroup]="formServices" (ngSubmit)="saveServLanding()"
                     style="height: 60vh;">
 
@@ -66,13 +70,35 @@
                     </mat-form-field>
 
                     <div class="col-12 py-2 my-2ng formServices">
-                        <button mat-raised-button color="warn" type="submit" [disabled]="formServices.invalid"
+                        <button *ngIf="idService==''" mat-raised-button color="warn" type="submit" [disabled]="formServices.invalid"
                             class="btn btn-dark align-right">Save</button>
+                            <button *ngIf="idService!=''" mat-raised-button color="warn" type="button" [disabled]="formServices.invalid"
+                            class="btn btn-dark align-right ml-3" (mouseup)="updateServLcanding()">Update</button>
+                            <button mat-raised-button color="warn" type="button"
+                            class="btn btn-danger align-right ml-3" (mouseup)="cancelEditSave()">Cancelar</button>
                     </div>
 
                 </form>
+                <!-- <button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button> -->
+
+                <ng-template #template >
+                    <div class="modal-header">
+                        <h4 class="modal-title pull-left">Eliminar</h4>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estas segur@ que quires eliminar el servicio {{nameService}}?
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-dark mt-4 mb-2 ml-4 " aria-label="Close"
+                            (click)="modalRef.hide()">
+                            Cancelar
+                        </button>
+                        <button type="button" class="btn btn-dark mt-4 mb-2 ml-4" (click)="deleteServLanding()" (mouseup)="modalRef.hide()">Eliminar</button>
+                    </div>
+                </ng-template>
             </mat-tab>
             <!-- <mat-tab label="Third">Content 3</mat-tab> -->
         </mat-tab-group>
+
     </div>
 </div>

@@ -23,6 +23,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatListModule} from '@angular/material/list';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import {MatListModule} from '@angular/material/list';
     AngularFireAuthModule,
     FontAwesomeModule,
     MatTabsModule,
-    MatListModule
+    MatListModule,
+    MatTooltipModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

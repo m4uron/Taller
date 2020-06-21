@@ -1,15 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { height: 100%; margin: 0; padding: 0; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
 .panelAdmin, .modal-content{
     overflow: hidden;
     border-radius: 5px;
     width: 100%;
-    height: 80vh;
-     background-color: rgba(105, 203, 241, 0.2);
+    height: 75vh !important;
+    background-color: rgba(105, 203, 241, 0.2);
     border: .5px solid rgb(129, 226, 233);
-    backdrop-filter: blur(2.5px);
+    backdrop-filter: blur(1.5px);
     textarea{
         height: 10vh;
         resize: none !important;

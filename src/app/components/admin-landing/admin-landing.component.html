@@ -12,12 +12,14 @@
             <mat-tab label="Lista de servicios">
                 <!-- tab listar services -->
 
-                <div class="container my-4">
+                <div class="container">
                     <mat-selection-list #shoes [multiple]="false" class="">
+                        <h3>Servicios</h3>
+
                         <mat-list-option *ngFor="let serv of servSelected">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-12 d-flex justify-content-between">{{serv.name}}, {{serv.id}} <div
+                                    <div class="col-12 d-flex justify-content-between">{{serv.name}} <div
                                             class="d-flex">
                                             <fa-icon [icon]="faPencilAlt" class="mx-1 iconTab"
                                                 (click)="editServLand(serv)" matTooltip="Editar servicio ">Edit
@@ -39,9 +41,10 @@
                 <!-- termina tab services -->
             </mat-tab>
             <mat-tab label="Crear/Editar">
+                
                 <form class="col-12 pt-5 px-4 " [formGroup]="formServices" (ngSubmit)="saveServLanding()"
                     style="height: 60vh;">
-
+                    <h3 class="text-center">Crear/Editar un servicio</h3>
                     <mat-form-field class="example-full-width col-12">
                         <mat-label>Url de imagen de fondo</mat-label>
                         <input matInput formControlName="urlImg" placeholder="Http://etc....">

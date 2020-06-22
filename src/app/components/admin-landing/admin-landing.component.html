@@ -56,7 +56,7 @@
 
                     <mat-form-field class="example-full-width col-12">
                         <mat-label>* Nombre del servicio</mat-label>
-                        <input matInput formControlName="name" placeholder="Ex. Hojalateria">
+                        <input maxlength="45" matInput formControlName="name" placeholder="Ex. Hojalateria">
                         <mat-error *ngIf="name.hasError('required')">
                             Please enter a name
                         </mat-error>

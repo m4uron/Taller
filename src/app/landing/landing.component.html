@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-12 header d-flex align-items-center justify-content-center pb-5">
 
-            <div  id="triangulo" class="d-flex align-items-end">
-                <h1 class=" display-1" >My app</h1>
+            <div id="triangulo" class="d-flex align-items-end">
+                <h1 class=" display-1">My app</h1>
             </div>
         </div>
 
@@ -22,11 +22,59 @@
             background-position: center;
             background-attachment: fixed;
             " id="contService">
-                    
-                    <p>{{item.descripcion}}</p>
-                </div>
+
+                <p>{{item.descripcion}}</p>
+            </div>
         </div>
-
+        <div class="container ">
+            <div class="row my-4 ">
+              <div class="col-12 contacto row pb-5 mx-0">
+                  <div class="col-12"><h2 class="text-center py-5">Contacto</h2></div>
+                  <hr>
+                <div class="col-12 col-md-6 col-lg-6">
+                    
+                    <h4 class="text-center">Direccion</h4>
+                    <hr>
+                    <ul class=" pl-5">
+                        <li><h5><b>Calle:</b></h5><p>José Maria Patoni #15</p></li>
+                        <li><h5><b>Colonia:</b></h5><p>Bejero Sta Fe</p></li>
+                        <li><h5><b>Delegación:</b></h5><p>Alvaro Obregón</p></li>
+                        <li><h5><b>CP:</b></h5><p>01340</p></li>
+                        <li><h5><b>Ciudad:</b></h5><p>Ciudad de México</p></li>
+                    </ul>
+        
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <h4 class="text-center">Medios de Contacto</h4>
+                    <hr>
+                    <ul class=" pl-5">
+                        <li><h5><b>Teléfono:</b></h5><p>55555555555</p></li>
+                        <li><h5><b>Email:</b></h5><p>Bej@gmial.com</p></li>
+                    </ul> 
+                </div>
+                <div class="col-12 text-center pt-5">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.73682767316!2d-99.24770238543641!3d19.380544747366017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d200e2aa735e37%3A0x8271bcb463f24b5f!2sCalle%20Jos%C3%A9%20Mar%C3%ADa%20Patoni%2015%2C%20Bejero%2C%20%C3%81lvaro%20Obreg%C3%B3n%2C%2001340%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1592799597472!5m2!1ses!2smx" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+              </div>
+            </div>
+        </div>
     </div>
+</div>
 
+<div class="container-fluid" id="footer">
+    <div class="row">
+        <div class="col-6 row pt-3 ">
+            <div class="col-12">
+                <h4 class="text-center">Manejamos marcas como: </h4>
+            </div>
+            <div class="col-3 px-0 text-center" *ngFor="let imgUrl of imagenesMarca">
+            
+                <img class="imgMarca" src="{{imgUrl}}" alt="">
+            
+        </div>
+        </div>
+        <div class="col-6 py-4">
+            <h3 class="text-center">@copyrigth</h3>
+        </div>
+    </div>
 </div>
